@@ -27,6 +27,10 @@
     <button onclick="firstBtn('etoro:/\/deposit/plaid-redirect-success')">
         etoro://deposit/plaid-redirect-success
     </button>
+
+    <button onclick="redirect('https:/\/www.etoro.com/deposit?amount=777&fundingTypeId=29')">
+        https://www.etoro.com/deposit?amount=777&fundingTypeId=29
+    </button>
     <button>
         on
     </button>
@@ -35,6 +39,15 @@
         function firstBtn(url) {
                 window.location = url;
         }
+
+        
+function redirect(url) {
+    const urlWithEtoroScheme = url.replace('https://etoro.com','etoro:/')
+    window.location.href = urlWithEtoroScheme
+    setTimeout(() => {
+        window.location.href = url
+    }, 500);
+}
     </script>
 </body>
 </html>
